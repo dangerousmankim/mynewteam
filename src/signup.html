@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회원가입</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>회원가입 | endpointproject</title>
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
-      <h2 style="text-align: center; margin-bottom: 20px;">📝 회원가입</h2>
-      
-      <form id="signup-form">
-        <div class="input-group">
-          <label for="signup-email">이메일</label>
-          <input type="email" id="signup-email" required placeholder="example@email.com">
-        </div>
-        <div class="input-group">
-          <label for="signup-password">비밀번호</label>
-          <input type="password" id="signup-password" required placeholder="비밀번호를 입력하세요">
-        </div>
-        <div class="input-group">
-          <label for="signup-name">이름</label>
-          <input type="text" id="signup-name" required placeholder="홍길동">
-        </div>
-        <div class="input-group">
-          <label for="signup-address">주소</label>
-          <input type="text" id="signup-address" required placeholder="서울시 강남구 테헤란로...">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 10px;">가입하기</button>
-      </form>
+  <header>
+    <nav>
+      <a href="./index.html">홈</a>
+      <a id="nav-signup-link" href="./signup.html">회원가입</a>
+      <a id="nav-login-link" href="./login.html">로그인</a>
+      <a id="nav-mypage-link" href="./mypage.html">내 정보</a>
+      <button id="nav-logout-btn" type="button">로그아웃</button>
+    </nav>
+  </header>
 
-      <div id="signup-msg" class="status-msg" style="padding: 15px 0;"></div>
-      <p style="text-align: center; font-size: 13px;">이미 계정이 있으신가요? <a href="login.html" style="color: #007bff;">로그인</a></p>
-    </div>
-  </div>
+  <main>
+    <h1>회원가입</h1>
+    <form id="signup-form">
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" minlength="4" required />
+      </div>
+      <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="address">주소</label>
+        <input type="text" id="address" name="address" />
+      </div>
+      <button type="submit">가입하기</button>
+    </form>
+    <p id="signup-message" role="status"></p>
+  </main>
 
-  <script src="js/commom.js"></script>
-  <script>
-    document.getElementById("signup-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const userData = {
-        email: document.getElementById("signup-email").value,
-        password: document.getElementById("signup-password").value,
-        name: document.getElementById("signup-name").value,
-        address: document.getElementById("signup-address").value
-      };
-      await handleSignup(userData);
-    });
-  </script>
+  <script src="./js/commom.js"></script>
+  <script src="./js/signup.js"></script>
 </body>
 </html>
