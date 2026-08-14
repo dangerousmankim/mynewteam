@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>endpointproject</title>
+  <title>내 정보 | endpointproject</title>
 </head>
 <body>
   <header>
@@ -16,10 +16,21 @@
   </header>
 
   <main>
-    <h1>endpointproject</h1>
-    <p>메인 페이지입니다.</p>
+    <h1>내 정보</h1>
+    <p id="mypage-message" role="status"></p>
+    <dl id="mypage-info" hidden>
+      <dt>이름</dt>
+      <dd id="info-name"></dd>
+      <dt>이메일</dt>
+      <dd id="info-email"></dd>
+      <dt>주소</dt>
+      <dd id="info-address"></dd>
+      <dt>가입일</dt>
+      <dd id="info-createdAt"></dd>
+    </dl>
   </main>
 
   <script src="./js/commom.js"></script>
+  <script src="./js/mypage.js"></script>
 </body>
 </html>
