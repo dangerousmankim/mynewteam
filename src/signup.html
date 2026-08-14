@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입 | endpointproject</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="./index.html">홈</a>
+      <a id="nav-signup-link" href="./signup.html">회원가입</a>
+      <a id="nav-login-link" href="./login.html">로그인</a>
+      <a id="nav-mypage-link" href="./mypage.html">내 정보</a>
+      <button id="nav-logout-btn" type="button">로그아웃</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>회원가입</h1>
+    <form id="signup-form">
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" minlength="4" required />
+      </div>
+      <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="address">주소</label>
+        <input type="text" id="address" name="address" />
+      </div>
+      <button type="submit">가입하기</button>
+    </form>
+    <p id="signup-message" role="status"></p>
+  </main>
+
+  <script src="./js/commom.js"></script>
+  <script src="./js/signup.js"></script>
+</body>
+</html>
