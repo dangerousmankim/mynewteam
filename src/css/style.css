@@ -1,0 +1,238 @@
+/* Luminous Soft-UI System — 공통 디자인 변수 및 기본 컴포넌트 */
+/* 모든 페이지는 <link rel="stylesheet" href="./css/style.css">로 이 파일 하나만 불러오면 됨 */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap");
+
+:root {
+  /* 브랜드 팔레트 (베이스 컬러) */
+  --color-primary: #7fb7ad; /* 세이지 그린 */
+  --color-secondary: #9db2bf; /* 블루 그레이 */
+  --color-tertiary: #e3f2fd; /* 라이트 블루 (서피스 톤) */
+  --color-neutral: #526d82; /* 슬레이트 */
+
+  /* 팔레트별 명도 스케일 (필요한 만큼 밝게/어둡게 섞어 사용) */
+  --color-primary-900: color-mix(in srgb, var(--color-primary) 55%, black);
+  --color-primary-700: color-mix(in srgb, var(--color-primary) 80%, black);
+  --color-primary-500: var(--color-primary);
+  --color-primary-300: color-mix(in srgb, var(--color-primary) 60%, white);
+  --color-primary-100: color-mix(in srgb, var(--color-primary) 25%, white);
+
+  --color-secondary-900: color-mix(in srgb, var(--color-secondary) 55%, black);
+  --color-secondary-700: color-mix(in srgb, var(--color-secondary) 80%, black);
+  --color-secondary-500: var(--color-secondary);
+  --color-secondary-300: color-mix(in srgb, var(--color-secondary) 60%, white);
+  --color-secondary-100: color-mix(in srgb, var(--color-secondary) 25%, white);
+
+  --color-neutral-900: color-mix(in srgb, var(--color-neutral) 45%, black);
+  --color-neutral-700: color-mix(in srgb, var(--color-neutral) 75%, black);
+  --color-neutral-500: var(--color-neutral);
+  --color-neutral-300: color-mix(in srgb, var(--color-neutral) 55%, white);
+  --color-neutral-100: color-mix(in srgb, var(--color-neutral) 20%, white);
+
+  /* 시맨틱 컬러 (실제 화면에서는 이쪽을 사용) */
+  --color-bg: #ffffff;
+  --color-surface: var(--color-tertiary);
+  --color-surface-alt: #ffffff;
+  --color-border: var(--color-secondary-300);
+
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: color-mix(
+    in srgb,
+    var(--color-neutral-500) 70%,
+    var(--color-neutral-900) 30%
+  );
+  --color-text-muted: var(--color-secondary-500);
+  --color-text-inverse: #ffffff;
+
+  --color-danger: #d64545;
+  --color-danger-bg: #d64545;
+
+  /* 타이포그래피 */
+  --font-headline: "Plus Jakarta Sans", "Pretendard", sans-serif;
+  --font-body: "Be Vietnam Pro", "Pretendard", sans-serif;
+
+  --font-size-headline: 3rem;
+  --font-size-body: 2.5rem;
+  --font-size-label: 2.25rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
+
+  /* 여백 / 라운드 / 그림자 */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  --shadow-soft: 0 4px 16px rgba(82, 109, 130, 0.12);
+}
+
+/* 기본 리셋 & 페이지 레이아웃 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-md);
+}
+
+p {
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-md);
+}
+
+a {
+  color: var(--color-primary-900);
+}
+
+/* 카드 / 서피스 */
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* 버튼 */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary-900);
+  color: var(--color-text-inverse);
+}
+
+.btn-secondary {
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+}
+
+.btn-inverted {
+  background: var(--color-neutral-900);
+  color: var(--color-text-inverse);
+}
+
+.btn-outlined {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+/* 인풋 / 서치 */
+
+.input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* 배지 / 라벨 */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: var(--color-primary-300);
+  color: var(--color-primary-900);
+}
+
+/* 아이콘 버튼 (원형/사각 액션 버튼) */
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-inverse);
+  background: var(--color-neutral-300);
+}
+
+.icon-btn-square {
+  border-radius: var(--radius-sm);
+}
+
+.icon-btn-primary {
+  background: var(--color-primary-900);
+}
+
+.icon-btn-danger {
+  background: var(--color-danger-bg);
+}
+
+/* 네비게이션 (pill nav) */
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+/* 진행바 */
+
+.progress-track {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-alt);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary-700);
+}
