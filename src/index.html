@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장난감 쇼핑몰 - endpointproject</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- 상단 네비게이션 -->
+    <header class="header">
+      <div class="header-container">
+        <h2 class="logo" onclick="location.href = 'index.html'">
+          Endpoint Mall
+        </h2>
+        <nav id="auth-nav">
+          <button id="auth-btn" class="btn btn-outline">로그인</button>
+          <button
+            id="signup-nav-btn"
+            class="btn btn-outline"
+            onclick="location.href = 'signup.html'"
+          >
+            회원가입
+          </button>
+          <button
+            id="mypage-btn"
+            class="btn btn-primary"
+            style="display: none"
+            onclick="location.href = 'mypage.html'"
+          >
+            내 정보
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="banner">
+        <h1>🛍️ 상품 목록</h1>
+        <p>원하는 상품을 검색하거나 카테고리별로 찾아보세요.</p>
+      </section>
+
+      <!-- 검색 및 필터 영역 -->
+      <section class="search-filter-box">
+        <select id="category-select" class="form-select">
+          <option value="">전체 카테고리</option>
+          <option value="ELECTRONICS">전자기기</option>
+          <option value="CLOTHING">의류</option>
+          <option value="FOOD">식품</option>
+          <option value="TOY">완구</option>
+        </select>
+        <input
+          type="text"
+          id="search-keyword"
+          class="form-input"
+          placeholder="상품명을 입력하세요"
+        />
+        <button id="search-btn" class="btn btn-primary">검색</button>
+      </section>
+
+      <!-- 상태 메시지 (로딩 및 결과 없음) -->
+      <div id="status-message" class="status-msg"></div>
+
+      <!-- 상품 카드 리스트 -->
+      <section id="product-container" class="product-grid"></section>
+    </main>
+
+    <script src="js/commom.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        initAuthNav();
+        fetchProducts();
+
+        document.getElementById("search-btn").addEventListener("click", () => {
+          const keyword = document.getElementById("search-keyword").value;
+          const category = document.getElementById("category-select").value;
+          fetchProducts(keyword, category);
+        });
+
+        document
+          .getElementById("search-keyword")
+          .addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+              document.getElementById("search-btn").click();
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

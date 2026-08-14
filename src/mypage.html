@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 정보</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <h2 class="logo" onclick="location.href='index.html'">Endpoint Mall</h2>
+      <nav id="auth-nav">
+        <button id="auth-btn" class="btn btn-outline">로그아웃</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="detail-container" style="max-width: 600px; margin: 30px auto;">
+      <h2>👤 내 프로필 정보</h2>
+      <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+      
+      <div id="info-msg" class="status-msg">회원 정보를 불러오는 중...</div>
+
+      <div id="user-info" style="display: none; line-height: 2;">
+        <p><strong>이름:</strong> <span id="info-name"></span></p>
+        <p><strong>이메일:</strong> <span id="info-email"></span></p>
+        <p><strong>주소:</strong> <span id="info-address"></span></p>
+        <p><strong>역할/권한:</strong> <span id="info-role"></span></p>
+        <p><strong>가입일:</strong> <span id="info-created"></span></p>
+      </div>
+
+      <div style="margin-top: 25px; text-align: center;">
+        <button onclick="location.href='index.html'" class="btn btn-secondary">메인으로 돌아가기</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/commom.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initAuthNav();
+      loadMyInfo();
+    });
+  </script>
+</body>
+</html>
