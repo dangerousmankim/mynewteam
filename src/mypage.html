@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>내 정보 | endpointproject</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="./index.html">홈</a>
+      <a id="nav-signup-link" href="./signup.html">회원가입</a>
+      <a id="nav-login-link" href="./login.html">로그인</a>
+      <a id="nav-mypage-link" href="./mypage.html">내 정보</a>
+      <button id="nav-logout-btn" type="button">로그아웃</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>내 정보</h1>
+    <p id="mypage-message" role="status"></p>
+    <dl id="mypage-info" hidden>
+      <dt>이름</dt>
+      <dd id="info-name"></dd>
+      <dt>이메일</dt>
+      <dd id="info-email"></dd>
+      <dt>주소</dt>
+      <dd id="info-address"></dd>
+      <dt>가입일</dt>
+      <dd id="info-createdAt"></dd>
+    </dl>
+  </main>
+
+  <script src="./js/commom.js"></script>
+  <script src="./js/mypage.js"></script>
+</body>
+</html>
