@@ -1,53 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>상품 상세 정보</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header">
-    <div class="header-container">
-      <h2 class="logo" onclick="location.href='index.html'">Endpoint Mall</h2>
-      <nav id="auth-nav">
-        <button id="auth-btn" class="btn btn-outline">로그인</button>
-        <button id="signup-nav-btn" class="btn btn-outline" onclick="location.href='signup.html'">회원가입</button>
-        <button id="mypage-btn" class="btn btn-primary" style="display: none;" onclick="location.href='mypage.html'">내 정보</button>
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품 상세 | endpointproject</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      .detail-wrap {
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 30px;
+      }
+      .status-msg {
+        text-align: center;
+        padding: 30px;
+        font-size: 15px;
+        color: var(--color-text-secondary, #666);
+      }
+      .category-tag {
+        display: inline-block;
+        font-size: 13px;
+        background: var(--color-tertiary, #e3f2fd);
+        color: var(--color-neutral, #526d82);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 팀 공통 네비게이션 -->
+    <header>
+      <nav>
+        <a href="./index.html">홈</a>
+        <a id="nav-signup-link" href="./signup.html">회원가입</a>
+        <a id="nav-login-link" href="./login.html">로그인</a>
+        <a id="nav-mypage-link" href="./mypage.html">내 정보</a>
+        <button id="nav-logout-btn" type="button">로그아웃</button>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <button onclick="location.href='index.html'" class="btn btn-secondary" style="margin-bottom: 20px;">← 목록으로 돌아가기</button>
+    <main style="max-width: 1000px; margin: 0 auto; padding: 20px">
+      <button onclick="location.href = './index.html'" class="btn btn-outlined">
+        ← 목록으로
+      </button>
 
-    <div id="detail-loading" class="status-msg">상품 정보를 불러오는 중...</div>
-
-    <div id="detail-card" class="detail-container" style="display: none;">
-      <span class="category-tag" id="detail-category"></span>
-      <h1 id="detail-name" style="margin: 10px 0;"></h1>
-      <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-      
-      <p class="price" style="font-size: 24px; margin-bottom: 10px;">
-        가격: <span id="detail-price"></span>원
-      </p>
-      <p class="stock" style="font-size: 15px; margin-bottom: 20px;">
-        남은 재고: <span id="detail-stock"></span>개
-      </p>
-      
-      <div style="background: #fdfdfd; padding: 20px; border-radius: 6px; border: 1px solid #f0f0f0;">
-        <h3 style="margin-bottom: 10px;">상품 설명</h3>
-        <p id="detail-desc" style="line-height: 1.6; white-space: pre-line;"></p>
+      <!-- 팀장님 ID 매칭: detail-loading -->
+      <div id="detail-loading" class="status-msg">
+        상품 정보를 불러오는 중...
       </div>
-    </div>
-  </main>
 
-  <script src="js/commom.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      initAuthNav();
-      loadProductDetail();
-    });
-  </script>
-</body>
+      <!-- 팀장님 ID 매칭: detail-card 및 하위 정보 id -->
+      <article id="detail-card" class="card detail-wrap" style="display: none">
+        <div>
+          <span id="detail-category" class="category-tag"></span>
+          <h1 id="detail-name" style="margin: 12px 0 6px 0"></h1>
+        </div>
+
+        <hr
+          style="
+            margin: 15px 0;
+            border: 0;
+            border-top: 1px solid var(--color-border, #eee);
+          "
+        />
+
+        <p
+          style="
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--color-danger, #e63946);
+            margin-bottom: 8px;
+          "
+        >
+          가격: <span id="detail-price"></span>원
+        </p>
+        <p
+          style="margin-bottom: 20px; color: var(--color-text-secondary, #666)"
+        >
+          남은 재고: <span id="detail-stock" style="font-weight: bold"></span>개
+        </p>
+
+        <div
+          style="
+            padding: 20px;
+            background: var(--color-surface, #f8f9fa);
+            border-radius: var(--radius-md, 8px);
+          "
+        >
+          <h3 style="margin-bottom: 10px">상품 설명</h3>
+          <p
+            id="detail-desc"
+            style="white-space: pre-line; line-height: 1.6"
+          ></p>
+        </div>
+      </article>
+    </main>
+
+    <script src="./js/commom.js"></script>
+    <script src="./js/product.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 팀장님이 만든 상세 조회 함수 호출
+        loadProductDetail();
+      });
+    </script>
+  </body>
 </html>
