@@ -1,11 +1,132 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리뷰</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웰니스샵 - 상품 리뷰</title>
+
+  <!-- 1. 팀 공통 스타일 (전체 폰트, 공통 컬러 변수, 헤더/푸터 등) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 2. 내가 맡은 페이지 전용 스타일 (리뷰 카드, 별점, 프로그레스 바 등) -->
+  <link rel="stylesheet" href="css/design.css">
 </head>
 <body>
-    
+
+  <!-- 전체 레이아웃 래퍼 -->
+  <div class="page-wrapper">
+
+    <!-- 1. 상단 헤더 / 네비게이션 -->
+    <header class="main-header">
+      <div class="logo">웰니스샵</div>
+      <nav class="nav-menu">
+        <a href="#">카테고리</a>
+        <a href="#">베스트</a>
+        <a href="#">신상품</a>
+      </nav>
+      <div class="user-menu">
+        <a href="mypage.html">마이페이지</a>
+        <a href="login.html" id="authBtn">로그인</a>
+      </div>
+    </header>
+
+    <!-- 2. 메인 컨텐츠 영역 -->
+    <div class="content-container">
+
+      <!-- 좌측 사이드바 -->
+      <aside class="sidebar">
+        <h3>카테고리</h3>
+        <p class="sub-txt">필터를 선택하세요</p>
+        <ul class="cat-list">
+          <li class="active"><span class="icon">⊞</span> 전체</li>
+          <li><span class="icon">💻</span> 테크</li>
+          <li><span class="icon">🏠</span> 리빙</li>
+          <li><span class="icon">👕</span> 패션</li>
+          <li><span class="icon">💄</span> 뷰티</li>
+        </ul>
+      </aside>
+
+      <!-- 우측 리뷰 메인 컨텐츠 -->
+      <main class="review-main">
+        <div class="review-card">
+          
+          <!-- 타이틀 & 리뷰 작성 버튼 -->
+          <div class="review-header">
+            <div>
+              <h2>상품 리뷰</h2>
+              <p>이 상품에 대한 생생한 후기를 확인해보세요.</p>
+            </div>
+            <button type="button" class="btn-write" id="btnWriteReview">✏️ 리뷰 작성하기</button>
+          </div>
+
+          <!-- 별점 요약 및 점수별 프로그레스 바 영역 -->
+          <div class="rating-summary-box">
+            <div class="score-side">
+              <span class="avg-score" id="avgScore">4.8</span>
+              <div class="star-rating">★★★★★</div>
+              <span class="total-cnt" id="totalReviewCount">총 124개의 리뷰</span>
+            </div>
+
+            <div class="chart-side">
+              <div class="bar-row">
+                <span class="bar-label">5점</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
+                <span class="bar-percent">80%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">4점</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div>
+                <span class="bar-percent">15%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">3점</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 3%;"></div></div>
+                <span class="bar-percent">3%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">2점</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 1%;"></div></div>
+                <span class="bar-percent">1%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">1점</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 1%;"></div></div>
+                <span class="bar-percent">1%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 리뷰 목록 카드 영역 (review.js에서 API 데이터로 동적 렌더링) -->
+          <div class="review-list-wrap" id="reviewList">
+            <p class="loading-msg">리뷰를 불러오는 중입니다...</p>
+          </div>
+
+          <!-- 페이지네이션 -->
+          <div class="pagination">
+            <button type="button" class="page-arrow">&lt;</button>
+            <button type="button" class="page-num active">1</button>
+            <button type="button" class="page-num">2</button>
+            <button type="button" class="page-num">3</button>
+            <button type="button" class="page-arrow">&gt;</button>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- 3. 푸터 -->
+    <footer class="main-footer">
+      <div class="footer-left">© 2026 Digital Wellness. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">고객센터</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- 비즈니스 로직 및 API 연동 스크립트 -->
+  <script src="js/review.js"></script>
 </body>
 </html>
